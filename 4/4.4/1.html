@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function makeUser() {
+        return {
+          name: "John",
+          ref: this,
+        };
+      }
+
+      let user = makeUser();
+
+      alert(user.ref.name); // Каким будет результат? ---> TypeError... Ошибка возникает из-за this, который внутри makeUser() равен undefined
+
+      
+    </script>
+  </body>
+</html>

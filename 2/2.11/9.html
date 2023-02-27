@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let inputuserName = prompt("Кто там?");
+
+      if (inputuserName === null) {
+        alert("Отменено");
+      } else if (inputuserName === "Админ") {
+        let adminPassword = prompt("Пароль?");
+        if (adminPassword === null) {
+          alert("Отменено");
+        } else if (adminPassword === "Я Главный") {
+          alert("Здравствуйте!");
+        } else {
+          alert("Неверный пароль");
+        }
+      } else {
+        alert("Я вас не знаю");
+      }
+    </script>
+  </body>
+</html>

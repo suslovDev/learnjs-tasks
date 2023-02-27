@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function readNumber() {
+        let numValue;
+        while (true) {
+          numValue = +prompt("Введите число", 0);
+          if (numValue !== numValue) continue;
+          if (numValue === null) return;
+          if (typeof numValue === "number") {
+            alert(`Число: ${numValue}`);
+            return;
+          }
+        }
+      }
+
+      readNumber();
+    </script>
+  </body>
+</html>
