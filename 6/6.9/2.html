@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function delay(f, ms) {
+        return function (...args) {
+          let correctThis = this;
+          setTimeout(function () {
+            f.apply(correctThis, args);
+          }, ms);
+        };
+      }
+
+      function f(x) {
+        alert(x);
+      }
+
+      let f1000 = delay(f, 1000);
+      let f1500 = delay(f, 1500);
+
+      f1000("test");
+      f1500("test");
+    </script>
+  </body>
+</html>

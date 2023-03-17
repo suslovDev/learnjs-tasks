@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // First variant:
+
+      /* const sumTo = n => {
+    let sum = 0;
+    
+    for(let i = 0; i <= n; i++) {
+        sum += i;
+    }
+    return sum;
+} */
+
+      // Second variant: (Самый медленный. Рекурсивные вызовы накапливаются в стеке вызовов, затем удаляются из него. Это медленнее чем работа в цикле, в пределах одного вызова)
+
+      /* const sumTo = n => {
+    if(n === 1) {
+        return 1;
+    } else {
+        return n + sumTo(n - 1);
+    }
+} */
+
+      // Third variant: (Самый быстрый. Здесь нет перебора всего числового ряда. Просто формула - три мгновенных вычисления.)
+
+      const sumTo = (n) => {
+        return (n * (n + 1)) / 2;
+      };
+
+      alert(sumTo(100));
+
+      //  Можно ли при помощи рекурсии посчитать sumTo(100000)?
+      //- В принципе, да - возможно, но в большинстве случаев браузеры НЕ поддерживают особых оптимизаций для вложенных вызовов и глубина рекурсии такой быть не может.
+    </script>
+  </body>
+</html>

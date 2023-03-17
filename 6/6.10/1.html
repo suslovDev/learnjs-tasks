@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      function f() {
+        alert(this); // null (в строгом режиме)
+      }
+
+      let user = {
+        g: f.bind(null), // жестко привязали контекст. Тут не важно какой this получит g - она просто передаст вызов в f с this равным null
+      };
+
+      user.g(); // исходная функция будет вызвана с this равным null
+    </script>
+  </body>
+</html>

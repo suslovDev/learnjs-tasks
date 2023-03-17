@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Correct(flag) {
+        this.flag = flag;
+      }
+
+      let correct1 = new Correct(true);
+      let correct2 = new correct1.constructor(false);
+
+      alert(correct2.flag);
+
+      function NotCorrect(flag) {
+        this.flag = flag;
+      }
+
+      NotCorrect.prototype = {};
+
+      let notCorrect1 = new NotCorrect(true);
+      let notCorrect2 = new notCorrect1.constructor(false);
+
+      alert(notCorrect2.flag);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function spy(func) {
+        function f(...args) {
+          f.calls.push(args);
+          return func.apply(this, args);
+        }
+
+        f.calls = [];
+
+        return f;
+      }
+
+      function work(a, b) {
+        alert(a + b);
+      }
+
+      work = spy(work);
+
+      work(1, 2);
+      work(4, 5);
+
+      for (let args of work.calls) {
+        alert("call:" + args.join());
+      }
+    </script>
+  </body>
+</html>
+
+<!-- Создайте декоратор spy(func), который должен возвращать обёртку, которая сохраняет все вызовы функции в своём свойстве calls.
+
+Каждый вызов должен сохраняться как массив аргументов.
+
+Например:
+
+function work(a, b) {
+  alert( a + b ); // произвольная функция или метод
+}
+
+work = spy(work);
+
+work(1, 2); // 3
+work(4, 5); // 9
+
+for (let args of work.calls) {
+  alert( 'call:' + args.join() ); // "call:1,2", "call:4,5"
+} -->
