@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .notification {
+      position: absolute;
+      padding: 20px;
+      background-color: green;
+    }
+  </style>
+  <body>
+    <p>
+      Сначала я не хотел писать стили для уведомления, но потом я решил... не
+      писать их))) Уведомление выглядит не очень, но работает вроде бы как надо!
+    </p>
+    <script>
+      function showNotification(options) {
+        let body = document.body;
+        let div = document.createElement("div");
+
+        div.classList.add("notification");
+        let count = 0;
+        for (const option of Object.entries(options)) {
+          if (typeof option[1] === "number") {
+            div.style[`${option[0]}`] = `${option[1]}px`;
+          } else if (option[0] === "html") {
+            div.textContent = option[1];
+          } else if (option[0] === "className") {
+            div.classList.add(option[1]);
+          } else {
+            div.style[`${option[0]}`] = option[1];
+          }
+        }
+
+        body.append(div);
+
+        setTimeout(() => div.remove(), 1500);
+      }
+
+      setInterval(() => {
+        showNotification({
+          top: 10, // 10px от верхней границы окна (по умолчанию 0px)
+          right: 10, // 10px от правого края окна (по умолчанию 0px)
+          html: "Hello!", // HTML-уведомление
+          className: "welcome", // дополнительный класс для div (необязательно)
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>

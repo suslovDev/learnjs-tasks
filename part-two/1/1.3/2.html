@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>Текстовый узел</div>
+    <div>
+      Снова текстовый узел
+      <ul>
+        <li>1 элемент списка</li>
+        <li>2 элемент списка</li>
+        <li>3 элемент списка</li>
+      </ul>
+      <p>
+        Правда, что elem.lastChild.nextSibling всегда равен null? - Да,
+        правда<br />
+        Правда, что elem.children[0].previousSibling всегда равен null - Нет,
+        это не так.
+      </p>
+    </div>
+  </body>
+  <script>
+    let elem = document.body.children[1];
+
+    alert(elem.lastChild.nextSibling === null);
+    alert(elem.children[0].previousSibling === null);
+  </script>
+</html>

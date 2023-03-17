@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let tempEl = document.createElement("div");
+      tempEl.innerHTML =
+        "texttexttext<br>texttexttext<br>texttexttext<br>texttexttext";
+
+      tempEl.style.cssText = `height: 50px; width: 50px; overflow-y: scroll; background-color: red`;
+
+      let scrollWidth = tempEl.offsetWidth - tempEl.clientWidth;
+      document.body.append(tempEl);
+      tempEl.remove();
+
+      alert(scrollWidth);
+    </script>
+  </body>
+</html>
